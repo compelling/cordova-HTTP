@@ -103,6 +103,7 @@
     CordovaHttpPlugin* __weak weakSelf = self;
    
     manager.responseSerializer = [TextResponseSerializer serializer];
+    manager.requestSerializer.timeoutInterval = 0.500;
     [manager GET:url parameters:parameters progress:nil success:^(NSURLSessionTask *task, id responseObject) {
         NSMutableDictionary *dictionary = [NSMutableDictionary dictionary];
         [self setResults: dictionary withTask: task];
